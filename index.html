@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Rara 🤍</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;family=Quicksand:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --blush-pink: #F5C6D0;
+      --pastel-pink: #E8A4B5;
+      --dusty-rose: #C77A8C;
+      --warm-yellow: #F5E6D3;
+      --muted-peach: #E8D4C5;
+      --lavender-blue: #D4E4F0;
+      --warm-cream: #FAF7F2;
+      --text-dark: #4A3A3F;
+      --text-medium: #6B5A5E;
+      --text-light: #8B7A7E;
+      --header-color: #A85072;
+      --accent-brown: #7A5A64;
+    }
+    
+    * {
+      scroll-behavior: smooth;
+    }
+    
+    .font-romantic {
+      font-family: 'Cormorant Garamond', serif;
+    }
+    
+    .font-body {
+      font-family: 'Quicksand', sans-serif;
+    }
+    
+    /* Floating hearts animation */
+    .floating-heart {
+      position: absolute;
+      opacity: 0.25;
+      animation: floatHeart 20s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    @keyframes floatHeart {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-20px) rotate(5deg);
+      }
+      50% {
+        transform: translateY(-10px) rotate(-3deg);
+      }
+      75% {
+        transform: translateY(-25px) rotate(3deg);
+      }
+    }
+    
+    /* Sparkle animation */
+    .sparkle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0;
+      animation: sparkle 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    @keyframes sparkle {
+      0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      50% {
+        opacity: 0.6;
+        transform: scale(1);
+      }
+    }
+    
+    /* Scroll reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Line by line reveal */
+    .line-reveal {
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .line-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Scroll indicator */
+    .scroll-indicator {
+      animation: bounce 2s ease-in-out infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(10px);
+      }
+    }
+    
+    /* Card hover glow */
+    .glow-card {
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 20px rgba(199, 122, 140, 0.25);
+    }
+    
+    .glow-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 35px rgba(199, 122, 140, 0.35);
+    }
+    
+    /* Pulse animation */
+    .pulse-heart {
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+    
+    /* Floating blob */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: 0.3;
+      animation: blobFloat 15s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    @keyframes blobFloat {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+      }
+      33% {
+        transform: translate(30px, -20px) scale(1.1);
+      }
+      66% {
+        transform: translate(-20px, 20px) scale(0.9);
+      }
+    }
+    
+    /* Soft button */
+    .soft-button {
+      transition: all 0.3s ease;
+    }
+    
+    .soft-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(255, 182, 193, 0.5);
+    }
+    
+    /* Section backgrounds */
+    .section-landing {
+      background: linear-gradient(180deg, #F5C6D0 0%, #F5D8DE 50%, #FAF7F2 100%);
+    }
+    
+    .section-honesty {
+      background: linear-gradient(180deg, #FAF7F2 0%, #F5E6D3 30%, #F5E6D3 100%);
+    }
+    
+    .section-how-i-see {
+      background: linear-gradient(180deg, #F5E6D3 0%, #D4E4F0 40%, #F5C6D0 100%);
+    }
+    
+    .section-us {
+      background: linear-gradient(180deg, #E8A4B5 0%, #C77A8C 50%, #E8A4B5 100%);
+    }
+    
+    .section-valentine {
+      background: linear-gradient(180deg, #F5C6D0 0%, #F5D8DE 40%, #FAF7F2 100%);
+    }
+
+    .section-question {
+      background: linear-gradient(180deg, #F5D8DE 0%, #E8A4B5 50%, #F5C6D0 100%);
+    }
+    
+    /* Pop-up modal styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+    
+    .modal-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 3rem 2rem;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(199, 122, 140, 0.3);
+      animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .floating-heart-animation {
+      position: absolute;
+      animation: floatUp 3s ease-out forwards;
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(0.5);
+      }
+    }
+
+    /* Button styles */
+    .valentine-button {
+      padding: 0.875rem 2.5rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .valentine-button-yes {
+      background: linear-gradient(135deg, #E8A4B5 0%, #C77A8C 100%);
+      color: white;
+    }
+
+    .valentine-button-yes:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 30px rgba(199, 122, 140, 0.4);
+    }
+
+    .valentine-button-no {
+      background: linear-gradient(135deg, #D4E4F0 0%, #A5D6E8 100%);
+      color: #6B5A5E;
+    }
+
+    .valentine-button-no:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 30px rgba(165, 214, 232, 0.4);
+    }
+
+    .close-modal {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      color: #A85072;
+      transition: transform 0.2s ease;
+    }
+
+    .close-modal:hover {
+      transform: scale(1.2);
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body text-gray-700 overflow-x-hidden">
+<button id="music-btn" style="position:fixed; top:20px; right:20px; z-index:9999; padding:10px 14px; border-radius:12px; border:none; background:#C77A8C; color:white; font-weight:600; cursor:pointer;">
+  ▶ Play music
+</button>
+
+<audio id="bg-music" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const btn = document.getElementById("music-btn");
+  const music = document.getElementById("bg-music");
+
+  btn.addEventListener("click", async () => {
+    try {
+      await music.play();
+      btn.innerText = "⏸ Music on";
+    } catch (e) {
+      btn.innerText = "Tap again 😭";
+    }
+  });
+</script>
+
+  <div id="app-wrapper" class="w-full h-full overflow-auto"><!-- PAGE 1: Landing -->
+   <section id="section-1" class="section-landing min-h-full relative flex flex-col items-center justify-center px-6 py-20 overflow-hidden"><!-- Floating hearts -->
+    <div class="floating-heart" style="top: 10%; left: 10%; animation-delay: 0s;">
+     <svg width="30" height="30" viewbox="0 0 24 24" fill="#C77A8C"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+     </svg>
+    </div>
+    <div class="floating-heart" style="top: 20%; right: 15%; animation-delay: 3s;">
+     <svg width="20" height="20" viewbox="0 0 24 24" fill="#D98FA8"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+     </svg>
+    </div>
+    <div class="floating-heart" style="bottom: 25%; left: 8%; animation-delay: 5s;">
+     <svg width="25" height="25" viewbox="0 0 24 24" fill="#E8A4B5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+     </svg>
+    </div>
+    <div class="floating-heart" style="bottom: 30%; right: 12%; animation-delay: 8s;">
+     <svg width="18" height="18" viewbox="0 0 24 24" fill="#C77A8C"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+     </svg>
+    </div><!-- Sparkles -->
+    <div class="sparkle" style="top: 15%; left: 25%; animation-delay: 0.5s;"></div>
+    <div class="sparkle" style="top: 35%; right: 20%; animation-delay: 1.5s;"></div>
+    <div class="sparkle" style="bottom: 40%; left: 30%; animation-delay: 2.5s;"></div>
+    <div class="sparkle" style="bottom: 20%; right: 25%; animation-delay: 0s;"></div>
+    <div class="text-center z-10">
+     <h1 id="landing-greeting" class="font-romantic text-5xl md:text-7xl text-rose-700 font-bold mb-6 reveal">Hi Rara 🤍</h1>
+     <p id="landing-subtext" class="font-body text-lg md:text-2xl text-rose-600 font-medium mb-8 reveal leading-relaxed" style="transition-delay: 0.2s;">I made something just for you.</p>
+     <p class="font-body text-sm md:text-base text-rose-500 font-medium reveal" style="transition-delay: 0.4s;">Take your time.</p>
+    </div><!-- Scroll indicator -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator">
+     <svg width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="#A85072" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7" />
+     </svg>
+    </div>
+   </section><!-- PAGE 2: Honesty & Distance -->
+   <section id="section-2" class="section-honesty min-h-full relative flex flex-col items-center justify-center px-6 py-20 overflow-hidden"><!-- Floating blobs -->
+    <div class="blob" style="width: 200px; height: 200px; background: #F5C6D0; top: 10%; left: -5%; animation-delay: 0s;"></div>
+    <div class="blob" style="width: 150px; height: 150px; background: #F5E6D3; bottom: 20%; right: -5%; animation-delay: 5s;"></div>
+    <div class="blob" style="width: 100px; height: 100px; background: #D98FA8; top: 50%; right: 10%; animation-delay: 10s;"></div>
+    <div class="max-w-lg w-full bg-white/70 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-lg z-10">
+     <h2 class="font-romantic text-3xl md:text-4xl text-amber-900 font-bold mb-10 text-center reveal">We haven't met yet</h2>
+     <div class="space-y-6 text-center">
+      <p class="font-body text-gray-700 font-medium line-reveal leading-relaxed text-base md:text-lg" data-delay="0">We haven't met yet.</p>
+      <p class="font-body text-gray-700 font-medium line-reveal leading-relaxed text-base md:text-lg" data-delay="1">And yes, it's a little unusual.</p>
+      <div class="my-8 opacity-40">
+       <div class="h-0.5 w-12 bg-gradient-to-r from-transparent via-rose-300 to-transparent mx-auto"></div>
+      </div>
+      <p class="font-body text-gray-700 font-medium line-reveal leading-relaxed text-base md:text-lg" data-delay="2">In a world that rushes everything,</p>
+      <p class="font-body text-gray-700 font-medium line-reveal leading-relaxed text-base md:text-lg" data-delay="3">we're here — taking our time,</p>
+      <p class="font-body text-gray-700 font-medium line-reveal leading-relaxed text-base md:text-lg" data-delay="4">getting to know each other across the miles.</p>
+      <div class="my-8 opacity-40">
+       <div class="h-0.5 w-12 bg-gradient-to-r from-transparent via-rose-300 to-transparent mx-auto"></div>
+      </div>
+      <p class="font-body text-gray-700 font-medium line-reveal leading-relaxed text-base md:text-lg" data-delay="5">And somehow, even like this,</p>
+      <p class="font-body text-gray-700 font-medium line-reveal leading-relaxed text-base md:text-lg" data-delay="6">it already feels meaningful.</p>
+     </div>
+    </div>
+   </section><!-- PAGE 3: How I See You -->
+   <section id="section-3" class="section-how-i-see min-h-full relative flex flex-col items-center justify-center px-6 py-20 overflow-hidden"><!-- Floating hearts -->
+    <div class="floating-heart" style="top: 15%; right: 10%; animation-delay: 2s;">
+     <svg width="22" height="22" viewbox="0 0 24 24" fill="#A5D6E8"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+     </svg>
+    </div>
+    <div class="floating-heart" style="bottom: 20%; left: 15%; animation-delay: 6s;">
+     <svg width="28" height="28" viewbox="0 0 24 24" fill="#C77A8C"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+     </svg>
+    </div>
+    <div class="max-w-2xl w-full z-10">
+     <h2 class="font-romantic text-3xl md:text-4xl text-slate-700 font-bold mb-12 text-center reveal">How I see you</h2>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      <div class="romantic-card glow-card bg-white/75 backdrop-blur-sm rounded-2xl p-8 text-center reveal relative group cursor-pointer" style="transition-delay: 0.1s;">
+       <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-rose-100/0 to-rose-100/0 group-hover:from-rose-100/30 group-hover:to-rose-100/50 transition-all duration-500 pointer-events-none"></div>
+       <div class="text-4xl mb-5 transition-transform duration-500 group-hover:scale-110">
+        💌
+       </div>
+       <p class="font-body text-gray-700 font-medium text-base md:text-lg leading-relaxed relative z-10">I look forward to you every day, especially your good morning messages.</p>
+       <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <svg class="w-5 h-5 mx-auto text-rose-400 animate-pulse" viewbox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+       </div>
+      </div>
+      <div class="romantic-card glow-card bg-white/75 backdrop-blur-sm rounded-2xl p-8 text-center reveal relative group cursor-pointer" style="transition-delay: 0.2s;">
+       <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-rose-100/0 to-rose-100/0 group-hover:from-rose-100/30 group-hover:to-rose-100/50 transition-all duration-500 pointer-events-none"></div>
+       <div class="text-4xl mb-5 transition-transform duration-500 group-hover:scale-110">
+        🤫
+       </div>
+       <p class="font-body text-gray-700 font-medium text-base md:text-lg leading-relaxed relative z-10">You're the person I want to tell little things to, even when nothing special happens.</p>
+       <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <svg class="w-5 h-5 mx-auto text-rose-400 animate-pulse" viewbox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+       </div>
+      </div>
+      <div class="romantic-card glow-card bg-white/75 backdrop-blur-sm rounded-2xl p-8 text-center reveal relative group cursor-pointer" style="transition-delay: 0.3s;">
+       <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-rose-100/0 to-rose-100/0 group-hover:from-rose-100/30 group-hover:to-rose-100/50 transition-all duration-500 pointer-events-none"></div>
+       <div class="text-4xl mb-5 transition-transform duration-500 group-hover:scale-110">
+        ☁️
+       </div>
+       <p class="font-body text-gray-700 font-medium text-base md:text-lg leading-relaxed relative z-10">Talking to you makes my day feel calmer, no matter how it started.</p>
+       <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <svg class="w-5 h-5 mx-auto text-rose-400 animate-pulse" viewbox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+       </div>
+      </div>
+      <div class="romantic-card glow-card bg-white/75 backdrop-blur-sm rounded-2xl p-8 text-center reveal relative group cursor-pointer" style="transition-delay: 0.4s;">
+       <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-rose-100/0 to-rose-100/0 group-hover:from-rose-100/30 group-hover:to-rose-100/50 transition-all duration-500 pointer-events-none"></div>
+       <div class="text-4xl mb-5 transition-transform duration-500 group-hover:scale-110">
+        ✨
+       </div>
+       <p class="font-body text-gray-700 font-medium text-base md:text-lg leading-relaxed relative z-10">You make things feel lighter just by being there.</p>
+       <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <svg class="w-5 h-5 mx-auto text-rose-400 animate-pulse" viewbox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- PAGE 4: Us -->
+   <section id="section-4" class="section-us min-h-full relative flex flex-col items-center justify-center px-6 py-20 overflow-hidden"><!-- Vignette overlay -->
+    <div class="absolute inset-0 pointer-events-none" style="box-shadow: inset 0 0 100px 50px rgba(199, 122, 140, 0.4);"></div><!-- Game controller icon -->
+    <div class="absolute top-20 right-10 opacity-30 floating-heart" style="animation-delay: 4s;">
+     <svg width="40" height="40" viewbox="0 0 24 24" fill="#fff"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+     </svg>
+    </div>
+    <div class="max-w-lg w-full text-center z-10">
+     <h2 class="font-romantic text-4xl md:text-5xl text-white font-bold mb-12 reveal">Us</h2>
+     <div class="space-y-6">
+      <p class="font-body text-white font-medium text-lg md:text-xl reveal leading-relaxed" style="transition-delay: 0.1s;">We started talking,</p>
+      <p class="font-body text-white font-medium text-lg md:text-xl reveal leading-relaxed" style="transition-delay: 0.2s;">we laughed,</p>
+      <p class="font-body text-white font-medium text-lg md:text-xl reveal leading-relaxed" style="transition-delay: 0.3s;">we played games,</p>
+      <p class="font-body text-white font-medium text-lg md:text-xl reveal leading-relaxed" style="transition-delay: 0.4s;">and somehow it became something that matters.</p>
+      <p class="font-body text-white font-medium text-lg md:text-xl mt-8 reveal leading-relaxed" style="transition-delay: 0.5s;">Even across the distance,</p>
+      <p class="font-body text-white font-medium text-lg md:text-xl reveal leading-relaxed" style="transition-delay: 0.6s;">it feels real and comforting.</p>
+     </div><!-- Pulsing heart -->
+     <div class="mt-12 pulse-heart inline-block">
+      <svg width="36" height="36" viewbox="0 0 24 24" fill="#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+      </svg>
+     </div>
+    </div>
+   </section><!-- PAGE 5: Valentine Letter (Clean) -->
+   <section id="section-5" class="section-valentine min-h-full relative flex flex-col items-center justify-center px-6 py-20 overflow-hidden"><!-- Floating hearts -->
+    <div class="floating-heart" style="top: 10%; left: 15%; animation-delay: 0s;">
+     <svg width="35" height="35" viewbox="0 0 24 24" fill="#C77A8C"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+     </svg>
+    </div>
+    <div class="floating-heart" style="top: 25%; right: 12%; animation-delay: 4s;">
+     <svg width="24" height="24" viewbox="0 0 24 24" fill="#D98FA8"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+     </svg>
+    </div>
+    <div class="floating-heart" style="bottom: 30%; left: 10%; animation-delay: 7s;">
+     <svg width="20" height="20" viewbox="0 0 24 24" fill="#E8A4B5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+     </svg>
+    </div>
+    <div class="floating-heart" style="bottom: 20%; right: 18%; animation-delay: 2s;">
+     <svg width="28" height="28" viewbox="0 0 24 24" fill="#C77A8C"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+     </svg>
+    </div><!-- Sparkles -->
+    <div class="sparkle" style="top: 20%; left: 30%; animation-delay: 1s;"></div>
+    <div class="sparkle" style="top: 40%; right: 25%; animation-delay: 2s;"></div>
+    <div class="sparkle" style="bottom: 35%; left: 20%; animation-delay: 0.5s;"></div>
+    <div class="sparkle" style="bottom: 25%; right: 30%; animation-delay: 1.5s;"></div>
+    <div class="max-w-2xl w-full z-10 px-6">
+     <div class="space-y-6 text-center">
+      <p id="closing-line-1" class="font-body text-gray-700 font-medium text-base md:text-lg line-reveal leading-relaxed" data-delay="0">Im genuinely so grateful you're in my life, Rara.</p>
+      <p id="closing-line-2" class="font-body text-gray-700 font-medium text-base md:text-lg line-reveal leading-relaxed" data-delay="1">Sometimes I just stop and think… how did this even happen? Like how did I get lucky enough to find you this gorgeous, funny, adorable human who somehow became my babyy</p>
+      <p id="closing-line-3" class="font-body text-gray-700 font-medium text-base md:text-lg line-reveal leading-relaxed" data-delay="2">You've become such a bright part of my days. I look forward to your messages more than I should admit, and you make even normal moments feel special. Even when I'm tired or stressed.. one "nanuu" from you and suddenly my brain is calm again.</p>
+      <p id="closing-line-4" class="font-body text-gray-700 font-medium text-base md:text-lg line-reveal leading-relaxed" data-delay="3">And honestly… even with all the distance, what we have feels so real to me.</p>
+      <p id="closing-line-5" class="font-body text-gray-700 font-medium text-base md:text-lg line-reveal leading-relaxed" data-delay="4">It doesntt feel fake or random at all. It just feels like us. Like we're actually together, even if we're far.</p>
+      <p id="closing-line-6" class="font-body text-gray-700 font-medium text-base md:text-lg line-reveal leading-relaxed" data-delay="5">Like Mickey and Minnie. Like Joker and Harley. Like two idiots who somehow found each other and decided, "yup. you're my person."</p>
+      <p id="closing-line-7" class="font-body text-gray-700 font-medium text-base md:text-lg line-reveal leading-relaxed" data-delay="6">One day I really want to take you out on Valentine's Day for real no screens, no time zones, no missing you through a phone. Just you beside me, my hand holding yours and me being the happiest guy alive (and yes, I'll try not to be shy… but you know me 😭)</p>
+      <p id="closing-line-8" class="font-body text-gray-700 font-medium text-base md:text-lg line-reveal leading-relaxed" data-delay="7">Until then, I just want you to know this</p>
+      <p id="closing-line-9" class="font-body text-gray-700 font-medium text-base md:text-lg line-reveal leading-relaxed" data-delay="8">Im so proud of what we're building, slowly and genuinely. And I don't take you for granted...not even a little.</p>
+      <p id="closing-line-10" class="font-body text-gray-700 font-medium text-base md:text-lg line-reveal leading-relaxed" data-delay="9">I love you, Rara.</p>
+      <p id="closing-line-11" class="font-body text-gray-700 font-medium text-base md:text-lg line-reveal leading-relaxed" data-delay="10">And I want you… today, tomorrow, and for a long, longg time.</p>
+      <p id="closing-line-12" class="font-body text-gray-700 font-medium text-base md:text-lg line-reveal leading-relaxed" data-delay="11">Like you're my girl, and I aint letting go.</p>
+     </div>
+    </div>
+   </section><!-- PAGE 6: Question & Buttons -->
+   <section id="section-6" class="section-question min-h-full relative flex flex-col items-center justify-center px-6 py-20 overflow-hidden"><!-- Floating hearts -->
+    <div class="floating-heart" style="top: 15%; left: 12%; animation-delay: 1s;">
+     <svg width="32" height="32" viewbox="0 0 24 24" fill="#C77A8C"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+     </svg>
+    </div>
+    <div class="floating-heart" style="top: 35%; right: 10%; animation-delay: 5s;">
+     <svg width="26" height="26" viewbox="0 0 24 24" fill="#E8A4B5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+     </svg>
+    </div>
+    <div class="floating-heart" style="bottom: 25%; left: 8%; animation-delay: 8s;">
+     <svg width="30" height="30" viewbox="0 0 24 24" fill="#D98FA8"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+     </svg>
+    </div><!-- Sparkles -->
+    <div class="sparkle" style="top: 25%; left: 35%; animation-delay: 0.5s;"></div>
+    <div class="sparkle" style="top: 50%; right: 20%; animation-delay: 1.5s;"></div>
+    <div class="sparkle" style="bottom: 30%; left: 25%; animation-delay: 2s;"></div>
+    <div class="max-w-lg w-full z-10 text-center">
+     <h2 class="font-romantic text-4xl md:text-5xl text-rose-700 font-bold mb-16 reveal">Will you be my Valentine, Shona? 💘</h2>
+     <div class="flex flex-col sm:flex-row gap-6 justify-center items-center reveal" style="transition-delay: 0.2s;"><button id="yes-button" class="valentine-button valentine-button-yes"> YES </button> <button id="no-button" class="valentine-button valentine-button-no"> NO </button>
+     </div>
+    </div>
+   </section>
+  </div><!-- Modal Container -->
+  <div id="modal-container"></div>
+  <script>
+    const defaultConfig = {
+      landing_greeting: "Hi Rara 🤍",
+      landing_subtext: "I made something just for you.",
+      closing_line_1: "Im genuinely so grateful you're in my life, Rara.",
+      closing_line_2: "Sometimes I just stop and think… how did this even happen? Like how did I get lucky enough to find you this gorgeous, funny, adorable human who somehow became my babyy.",
+      closing_line_3: "You've become such a bright part of my days. I look forward to your messages more than I should admit, and you make even normal moments feel special. Even when I'm tired or stressed.. one \"nanuu\" from you and suddenly my brain is calm again.",
+      closing_line_4: "And honestly… even with all the distance, what we have feels so real to me.",
+      closing_line_5: "It doesntt feel fake or random at all. It just feels like us. Like we're actually together, even if we're far.",
+      closing_line_6: "Like Mickey and Minnie. Like Joker and Harley. Like two idiots who somehow found each other and decided, \"yup. you're my person.\"",
+      closing_line_7: "One day I really want to take you out on Valentine's Day for real  no screens, no time zones, no missing you through a phone. Just you beside me, my hand holding yours and me being the happiest guy alive (and yes, I'll try not to be shy… but you know me 😭)",
+      closing_line_8: "Until then, I just want you to know this",
+      closing_line_9: "Im so proud of what we're building, slowly and genuinely. And I don't take you for granted...not even a little.",
+      closing_line_10: "I love you, Rara.",
+      closing_line_11: "And I want you… today, tomorrow, and for a long, longg time.",
+      closing_line_12: "Like you're my girl, and I aint letting go.",
+      yes_response: "Yayyy 😭💖\nI love you so much, Rara.\nYou're my favorite person and I'm so lucky you're mine.",
+      no_response: "Error 😭\nThis option is not available for soulmates."
+    };
+
+    let config = { ...defaultConfig };
+
+    // Scroll reveal observer
+    function setupScrollReveal() {
+      const revealElements = document.querySelectorAll('.reveal, .line-reveal');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const delay = entry.target.dataset.delay;
+            if (delay) {
+              setTimeout(() => {
+                entry.target.classList.add('visible');
+              }, parseInt(delay) * 150);
+            } else {
+              entry.target.classList.add('visible');
+            }
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+      
+      revealElements.forEach(el => observer.observe(el));
+    }
+
+    // Create and show modal
+    function showModal(message, isYes = true) {
+      const modalContainer = document.getElementById('modal-container');
+      
+      const modalOverlay = document.createElement('div');
+      modalOverlay.className = 'modal-overlay';
+      
+      const modalCard = document.createElement('div');
+      modalCard.className = 'modal-card';
+      
+      const lines = message.split('\n');
+      const cardContent = lines.map((line, index) => {
+        if (index === 0) {
+          return `<h3 class="font-romantic text-4xl text-rose-700 font-bold mb-4">${line}</h3>`;
+        }
+        return `<p class="font-body text-gray-700 font-medium text-lg mb-3 leading-relaxed">${line}</p>`;
+      }).join('');
+      
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'close-modal';
+      closeBtn.innerHTML = '✕';
+      closeBtn.onclick = () => modalOverlay.remove();
+      
+      modalCard.innerHTML = cardContent;
+      modalCard.appendChild(closeBtn);
+      
+      // Add floating hearts animation on yes
+      if (isYes) {
+        for (let i = 0; i < 8; i++) {
+          setTimeout(() => {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart-animation';
+            heart.style.left = Math.random() * 80 + 10 + '%';
+            heart.style.bottom = '-20px';
+            heart.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="#C77A8C"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
+            modalOverlay.appendChild(heart);
+          }, i * 100);
+        }
+      }
+      
+      modalOverlay.appendChild(modalCard);
+      modalContainer.appendChild(modalOverlay);
+    }
+
+    // Button click handlers
+    function setupButtons() {
+      const yesBtn = document.getElementById('yes-button');
+      const noBtn = document.getElementById('no-button');
+      
+      if (yesBtn) {
+        yesBtn.addEventListener('click', () => {
+          showModal(config.yes_response, true);
+        });
+      }
+      
+      if (noBtn) {
+        noBtn.addEventListener('click', () => {
+          showModal(config.no_response, false);
+        });
+      }
+    }
+
+    // Update UI based on config
+    async function onConfigChange(cfg) {
+      config = { ...defaultConfig, ...cfg };
+      
+      // Update landing section
+      const landingGreeting = document.getElementById('landing-greeting');
+      if (landingGreeting) {
+        landingGreeting.textContent = config.landing_greeting || defaultConfig.landing_greeting;
+      }
+      
+      const landingSubtext = document.getElementById('landing-subtext');
+      if (landingSubtext) {
+        landingSubtext.textContent = config.landing_subtext || defaultConfig.landing_subtext;
+      }
+      
+      // Update closing lines
+      const closingLine1 = document.getElementById('closing-line-1');
+      if (closingLine1) {
+        closingLine1.textContent = config.closing_line_1 || defaultConfig.closing_line_1;
+      }
+      
+      const closingLine2 = document.getElementById('closing-line-2');
+      if (closingLine2) {
+        closingLine2.textContent = config.closing_line_2 || defaultConfig.closing_line_2;
+      }
+      
+      const closingLine3 = document.getElementById('closing-line-3');
+      if (closingLine3) {
+        closingLine3.textContent = config.closing_line_3 || defaultConfig.closing_line_3;
+      }
+      
+      const closingLine4 = document.getElementById('closing-line-4');
+      if (closingLine4) {
+        closingLine4.textContent = config.closing_line_4 || defaultConfig.closing_line_4;
+      }
+
+      const closingLine5 = document.getElementById('closing-line-5');
+      if (closingLine5) {
+        closingLine5.textContent = config.closing_line_5 || defaultConfig.closing_line_5;
+      }
+
+      const closingLine6 = document.getElementById('closing-line-6');
+      if (closingLine6) {
+        closingLine6.textContent = config.closing_line_6 || defaultConfig.closing_line_6;
+      }
+
+      const closingLine7 = document.getElementById('closing-line-7');
+      if (closingLine7) {
+        closingLine7.textContent = config.closing_line_7 || defaultConfig.closing_line_7;
+      }
+
+      const closingLine8 = document.getElementById('closing-line-8');
+      if (closingLine8) {
+        closingLine8.textContent = config.closing_line_8 || defaultConfig.closing_line_8;
+      }
+
+      const closingLine9 = document.getElementById('closing-line-9');
+      if (closingLine9) {
+        closingLine9.textContent = config.closing_line_9 || defaultConfig.closing_line_9;
+      }
+
+      const closingLine10 = document.getElementById('closing-line-10');
+      if (closingLine10) {
+        closingLine10.textContent = config.closing_line_10 || defaultConfig.closing_line_10;
+      }
+
+      const closingLine11 = document.getElementById('closing-line-11');
+      if (closingLine11) {
+        closingLine11.textContent = config.closing_line_11 || defaultConfig.closing_line_11;
+      }
+
+      const closingLine12 = document.getElementById('closing-line-12');
+      if (closingLine12) {
+        closingLine12.textContent = config.closing_line_12 || defaultConfig.closing_line_12;
+      }
+
+      const closingLine13 = document.getElementById('closing-line-13');
+      if (closingLine13) {
+        closingLine13.textContent = config.closing_line_13 || defaultConfig.closing_line_13;
+      }
+    }
+
+    // Map config to capabilities
+    function mapToCapabilities(cfg) {
+      return {
+        recolorables: [],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    // Map config to edit panel values
+    function mapToEditPanelValues(cfg) {
+      return new Map([
+        ["landing_greeting", cfg.landing_greeting || defaultConfig.landing_greeting],
+        ["landing_subtext", cfg.landing_subtext || defaultConfig.landing_subtext],
+        ["closing_line_1", cfg.closing_line_1 || defaultConfig.closing_line_1],
+        ["closing_line_2", cfg.closing_line_2 || defaultConfig.closing_line_2],
+        ["closing_line_3", cfg.closing_line_3 || defaultConfig.closing_line_3],
+        ["closing_line_4", cfg.closing_line_4 || defaultConfig.closing_line_4],
+        ["closing_line_5", cfg.closing_line_5 || defaultConfig.closing_line_5],
+        ["closing_line_6", cfg.closing_line_6 || defaultConfig.closing_line_6],
+        ["closing_line_7", cfg.closing_line_7 || defaultConfig.closing_line_7],
+        ["closing_line_8", cfg.closing_line_8 || defaultConfig.closing_line_8],
+        ["closing_line_9", cfg.closing_line_9 || defaultConfig.closing_line_9],
+        ["closing_line_10", cfg.closing_line_10 || defaultConfig.closing_line_10],
+        ["closing_line_11", cfg.closing_line_11 || defaultConfig.closing_line_11],
+        ["closing_line_12", cfg.closing_line_12 || defaultConfig.closing_line_12],
+        ["closing_line_13", cfg.closing_line_13 || defaultConfig.closing_line_13],
+        ["yes_response", cfg.yes_response || defaultConfig.yes_response],
+        ["no_response", cfg.no_response || defaultConfig.no_response]
+      ]);
+    }
+
+    // Initialize
+    async function init() {
+      setupScrollReveal();
+      setupButtons();
+      
+      if (window.elementSdk) {
+        await window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities,
+          mapToEditPanelValues
+        });
+      } else {
+        await onConfigChange(defaultConfig);
+      }
+    }
+
+    init();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ccd7f16678747c3',t:'MTc3MDkxNDA5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
